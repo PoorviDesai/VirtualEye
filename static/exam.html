@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>VirtualEye Exam</title>
+    <link rel="stylesheet" type="text/css" href="../css/exam.css" />
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-database.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+
+    <!-- to prevent going back -->
+    <script>
+        window.history.pushState(null, null, window.location.href);
+        window.onpopstate = function () {
+            window.history.go(1);
+        };
+        console.log("back disabled");
+    </script>
+</head>
+
+<body>
+    <!-- must use webgazer in body and not head to avoid slowing down -->
+    <script src="https://webgazer.cs.brown.edu/webgazer.js?"></script>
+    <!-- <script src="https://webgazer.cs.brown.edu/webgazer.js"></script> -->
+    <div class="row">
+        <div class="column">
+            <h1>Student Details</h1>
+            <div class="incol">
+                <div id="row2">
+                    <!-- mail :  -->
+                </div>
+                <script>
+                    var mail = localStorage.getItem("studmail");
+                    //name = name.substring(0, name.lastIndexOf("@"));
+                    document.getElementById("row2").innerHTML = "Email: " + mail;
+                </script>
+            </div>
+        </div>
+        <div class="column">
+            <br><br>
+            <div class="topbar">
+
+                <p><b>Make sure that after submitting your exam you click Attendance button (before the deadline)!!</b>
+                </p>
+                <span id="time">04:00</span>
+                <button class="attend" onclick="addStore()">Attendance</button>
+            </div>
+
+            <script>
+                //timer of four minutes
+                function startTimer(duration, display) {
+                    var timer = duration, minutes, seconds;
+                    setInterval(function () {
+                        minutes = parseInt(timer / 60, 10);
+                        seconds = parseInt(timer % 60, 10);
+
+                        minutes = minutes < 10 ? "0" + minutes : minutes;
+                        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                        display.textContent = minutes + ":" + seconds;
+
+                        if (--timer < 0) {
+
+                            window.location.assign('dashboard.html')
+                        }
+                    }, 1000);
+                }
+
+                window.onload = function () {
+                    var fourMinutes = 60 * 4,
+                        display = document.querySelector('#time');
+                    startTimer(fourMinutes, display);
+                };
+
+            </script>
+            <!-- embedded form -->
+            <iframe
+                src="https://docs.google.com/forms/d/e/1FAIpQLSdLnUg8lvQMQyn57dbvEUFi1XZTkPmCSFo9C41kDYn_pReEMQ/viewform?embedded=true"
+                width="900" height="1527" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        </div>
+
+    </div>
+
+
+    <!-- checking for violations -->
+    <script>
+        //const webgazer = window.webgazer;
+
+        window.saveDataAcrossSessions = true
+
+        const LOOK_DELAY = 4000 // 4 seconds
+        const LEFT_CUTOFF = window.innerWidth / 4;
+        const RIGHT_CUTOFF = window.innerWidth - window.innerWidth / 4;
+
+        let startLookTime = Number.POSITIVE_INFINITY
+        let lookDirection = null
+        let error = 0;
+
+        //vars for storing independently
+
+        var tabchange = 0;
+        var headmov = 0;
+        var ctrlcnt = 0;
+        var ended = "false";
+        var clicked = "false";
+
+        //checking whether tab changed or not
+
+        document.addEventListener("visibilitychange", function () {
+
+            if (document.visibilityState === "hidden") {
+                error++;
+                tabchange++;
+                console.log(error)
+                alert("Warning #" + error + " You changed tabs..not allowed!!")
+                if ((clicked === "false") && (error > 4) && (ended === "false")) {
+                    ended = "true";
+                    sessionStorage.setItem("tabchange", tabchange);
+                    sessionStorage.setItem("headmov", headmov);
+                    sessionStorage.setItem("ctrlcnt", ctrlcnt);
+                    //window.location.replace("dashboard.html")
+                    addStore();
+                }
+
+            }
+        });
+        //checking whether the user pressed ctrl..
+        document.onkeydown = function (event) {
+
+            if (event.ctrlKey) {
+                ctrlcnt++;
+                error++;
+                alert("Warning #" + error + " You pressed the ctrl key..do not try to copy");
+                if (clicked === "false" && error > 4 && ended === "false") {
+                    ended = "true";
+                    sessionStorage.setItem("tabchange", tabchange);
+                    sessionStorage.setItem("headmov", headmov);
+                    sessionStorage.setItem("ctrlcnt", ctrlcnt);
+                    //window.location.replace('dashboard.html')
+                    addStore();
+                }
+
+            }
+
+        }
+        //no. of warnings > 4 before left / right count
+        if (clicked === "false" && error > 4 && ended === "false") {
+            ended = "true";
+            sessionStorage.setItem("tabchange", tabchange);
+            sessionStorage.setItem("headmov", headmov);
+            sessionStorage.setItem("ctrlcnt", ctrlcnt);
+            //window.location.replace('dashboard.html')
+            addStore();
+        }
+
+
+        //for head eye movement
+        webgazer
+            .setGazeListener((data, timestamp) => {
+
+                if (data == null || lookDirection === "STOP") return
+
+                if (
+                    data.x < LEFT_CUTOFF &&
+                    lookDirection !== "LEFT" &&
+                    lookDirection !== "RESET"
+                ) {
+                    startLookTime = timestamp
+                    lookDirection = "LEFT"
+                } else if (
+                    data.x > RIGHT_CUTOFF &&
+                    lookDirection !== "RIGHT" &&
+                    lookDirection !== "RESET"
+                ) {
+                    startLookTime = timestamp
+                    lookDirection = "RIGHT"
+                } else if (data.x >= LEFT_CUTOFF && data.x <= RIGHT_CUTOFF) {
+                    startLookTime = Number.POSITIVE_INFINITY
+                    lookDirection = null
+                }
+
+
+                if (startLookTime + LOOK_DELAY < timestamp) {
+                    if (lookDirection === "LEFT") {
+                        error++;
+                        alert("Warning #" + error + " Don't look here and there!")
+
+                        headmov++;
+
+                    } else if (lookDirection === "RIGHT") {
+                        error++;
+                        alert("Warning #" + error + " Don't look here and there!")
+
+                        headmov++;
+
+                    }
+
+
+                    //terminate if no. of warnings > 4 within left right
+                    if (clicked === "false" && error > 4 && ended === "false") {
+                        ended = "true";
+                        sessionStorage.setItem("tabchange", tabchange);
+                        sessionStorage.setItem("headmov", headmov);
+                        sessionStorage.setItem("ctrlcnt", ctrlcnt);
+                        //window.location.replace('dashboard.html')
+                        addStore();
+                    }
+
+                    startLookTime = Number.POSITIVE_INFINITY
+                    lookDirection = "STOP"
+                    setTimeout(() => {
+                        lookDirection = "RESET"
+                    }, 200)
+                }
+
+            })
+
+            .begin()
+
+
+    </script>
+    <!--  -->
+    <script>
+
+        var firebaseConfig = {
+            apiKey: "AIzaSyCm_7IvK1c8tmwe0PnUijz17QxGV-M7WIc",
+            authDomain: "engage-835dd.firebaseapp.com",
+            databaseURL: "https://engage-835dd-default-rtdb.firebaseio.com",
+            projectId: "engage-835dd",
+            storageBucket: "engage-835dd.appspot.com",
+            messagingSenderId: "411976048500",
+            appId: "1:411976048500:web:2b02c581d3f886265dd621",
+            measurementId: "G-4GS4Z6Y7QB"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+
+        var db = firebase.database();
+        var ref = db.ref("restricted_access/secret_document");
+        var userexamRef = ref.child("examrecords");
+        var usersRef = ref.child("users");
+
+        //storing email id
+
+        var mailid = localStorage.getItem("studmail");
+
+        if (clicked === "false" && ended === "false") {
+            function addStore() {
+                clicked = "true";
+
+                var ref = db.ref("restricted_access/secret_document");
+
+                //exam name
+                var nm = 'TEST 1';
+                //storing it in localstorage..for later use..stat
+                localStorage.setItem("examname", nm);
+
+
+                var userexamRef = ref.child("/examrecords");
+                var addtoit = userexamRef.child(nm);
+
+                var goforit = addtoit.push();
+                goforit.set(
+                    {
+                        email: mailid,
+                        CTRL_PRESSED: ctrlcnt,
+                        TAB_CHANGE: tabchange,
+                        HEAD_MOVE: headmov,
+                        TOTAL: error,
+
+
+                    });
+
+                console.log(ctrlcnt);
+                window.location.replace('dashboard.html');
+            }
+        }
+        sessionStorage.clear();
+    </script>
+</body>
+
+</html>

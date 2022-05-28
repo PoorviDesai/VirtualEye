@@ -1,0 +1,175 @@
+<!-- taking input from the admin about the exam name..unique identifier 
+by which name it is stored in the db
+then retrieiving it from the db -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>VirtualEye Statistics</title>
+    <link rel="stylesheet" type="text/css" href="../css/stat.css" />
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-database.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+
+
+</head>
+
+<body>
+    <!-- <h1>YE SIRF ADMIN KO DIKHNA CHAHIYE</h1> -->
+    <!-- <button class="tableshow" onclick="readIssues()">Click here</button> -->
+    <!--  -->
+    <h1 id="statHead">VirtualEye Statistics</h1>
+    <div class="container">
+        <form action="#" id="examinfo">
+
+            <input type="text" name="examname" id="exam-name" placeholder="Exam title">
+            <button id="submit_btn" class="tableshow" onClick="submit">Set</button>
+        </form>
+        <button class="tableshow" onclick="readIssues()">Get stats</button>
+        <div class="table-scroll">
+            <table style="margin-left:auto;margin-right:auto;overflow-x:auto;" rules="none" id="tbl">
+                <thead class="tableHeader">
+                    <tr>
+                        <th>S.No.</th>
+                        <th>Email</th>
+                        <th>Head movement</th>
+                        <th>control key pressed</th>
+                        <th>Tab change</th>
+                        <th>Total_violations</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody1">
+
+
+
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+    <script>
+        document.getElementById("examinfo").addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            var exname = event.target.examname.value;
+            console.log("1: " + exname);
+            sessionStorage.setItem("examname", exname);
+
+            let table = document.querySelector('table');
+                    var i = tbl.rows.length - 1;
+                    console.log(i);
+                    for (i = tbl.rows.length - 1; i > 0; i--) {
+                        table.deleteRow(i);
+                    }
+
+
+
+
+        });
+
+    </script>
+
+    <script>
+
+        var firebaseConfig = {
+            apiKey: "AIzaSyCm_7IvK1c8tmwe0PnUijz17QxGV-M7WIc",
+            authDomain: "engage-835dd.firebaseapp.com",
+            databaseURL: "https://engage-835dd-default-rtdb.firebaseio.com",
+            projectId: "engage-835dd",
+            storageBucket: "engage-835dd.appspot.com",
+            messagingSenderId: "411976048500",
+            appId: "1:411976048500:web:2b02c581d3f886265dd621",
+            measurementId: "G-4GS4Z6Y7QB"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
+
+        var db = firebase.database();
+        var ref = db.ref("restricted_access/secret_document");
+
+        var userexamRef = ref.child("/examrecords");
+
+        function readIssues() {
+            var sno = 0;
+            var exam = sessionStorage.getItem("examname");
+            // console.log(exname);
+            console.log("2: " + exam);
+
+
+            const issuesRef = userexamRef.ref.child(exam + "/");
+
+            issuesRef.on("value", function (snapshot) {
+                snapshot.forEach(snap => {
+                    const issue = snap.val();
+                    console.log(issue.email)
+                    console.log(issue.HEAD_MOVE)
+                    console.log(issue.CTRL_PRESSED)
+                    console.log(issue.TAB_CHANGE)
+                    console.log(issue.TOTAL)
+                    var email = issue.email;
+                    var head_movement = issue.HEAD_MOVE;
+                    var ctrl_pressed = issue.CTRL_PRESSED;
+                    var tab_change = issue.TAB_CHANGE;
+                    var total_errors = issue.TOTAL;
+
+
+
+                    AddToTable(email, head_movement, ctrl_pressed, tab_change, total_errors);
+
+
+                });
+            })
+
+            // console.log("clicked")
+
+
+
+            function AddToTable(email, head_movement, ctrl_pressed, tab_change, total_errors) {
+
+                var tbody = document.getElementById("tbody1");
+                var trow = document.createElement('tr');
+                var td1 = document.createElement('td');
+                var td2 = document.createElement('td');
+                var td3 = document.createElement('td');
+                var td4 = document.createElement('td');
+                var td5 = document.createElement('td');
+                var td6 = document.createElement('td');
+
+
+                td1.innerHTML = ++sno;
+                td2.innerHTML = email;
+                td3.innerHTML = head_movement;
+                td4.innerHTML = ctrl_pressed;
+                td5.innerHTML = tab_change;
+                td6.innerHTML = total_errors;
+
+
+                trow.appendChild(td1);
+                trow.appendChild(td2);
+                trow.appendChild(td3);
+                trow.appendChild(td4);
+                trow.appendChild(td5);
+                trow.appendChild(td6);
+                tbody.appendChild(trow);
+
+
+
+            }
+
+
+        }
+      
+    </script>
+
+
+</body>
+
+</html>

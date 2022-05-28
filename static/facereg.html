@@ -1,0 +1,114 @@
+<!-- take image sample here for registration..store its url indb
+on the faceverif page again with webcam on..take img2 and compare api see the results
+and then accordingly take to exam page 
+api giving error-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>VirtualEye Exam</title>
+    <link rel="stylesheet" type="text/css" href="../css/facereg.css" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-database.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+    <h1 id="reghead">VirtualEye Face Registration</h1>
+
+</head>
+
+<body>
+
+    <div class="row">
+        <div class="col1">
+
+            <button id="start-camera">Start Camera</button><br>
+            <!-- 320x240 -->
+            <video id="video" width="320" height="240" autoplay></video>
+            <br>
+            <button id="click-photo">Click Photo</button><br>
+            <canvas id="canvas" width="320" height="240"></canvas>
+            <!-- on clicking below btn the img will be stored -->
+
+        </div>
+        <div class="col2">
+            <img src="../images/facereg1.jpg" class="faceimg" />
+        </div>
+        <div class="row">
+            <button class="prceed" onclick="proceed()">Proceed</button>
+            <br>
+        </div>
+
+    </div>
+
+    <script>
+
+        var firebaseConfig = {
+            apiKey: "AIzaSyCm_7IvK1c8tmwe0PnUijz17QxGV-M7WIc",
+            authDomain: "engage-835dd.firebaseapp.com",
+            databaseURL: "https://engage-835dd-default-rtdb.firebaseio.com",
+            projectId: "engage-835dd",
+            storageBucket: "engage-835dd.appspot.com",
+            messagingSenderId: "411976048500",
+            appId: "1:411976048500:web:2b02c581d3f886265dd621",
+            measurementId: "G-4GS4Z6Y7QB"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+
+        let camera_button = document.querySelector("#start-camera");
+        let video = document.querySelector("#video");
+        let click_button = document.querySelector("#click-photo");
+        let canvas = document.querySelector("#canvas");
+
+        camera_button.addEventListener('click', async function () {
+            let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+            video.srcObject = stream;
+            document.getElementById("click-photo").style.display = "block";
+        });
+
+        click_button.addEventListener('click', function () {
+            canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+            document.getElementsByClassName("prceed")[0].style.display = "block";
+            let image_data_url = canvas.toDataURL();
+
+            // data url of the image
+            var imgurl = image_data_url;
+            console.log(imgurl);
+
+            var mail = localStorage.getItem("studmail");
+            var mailid = mail.substring(0, mail.lastIndexOf('@'));
+            console.log(mailid);
+
+            //function for onlcick proceed..then store in db 
+
+            var db = firebase.database();
+            var ref = db.ref("restricted_access/secret_document");
+
+            var userimg = ref.child("/registered_faces");
+            var addimg = userimg.child(mailid);
+            var setimg = addimg.push();
+
+            setimg.set(
+                {
+                    photo_url: imgurl
+                });
+
+            alert("Your Face has been registered!!")
+        });
+
+        function proceed() {
+            window.location.replace('dashboard.html');
+        }
+
+    </script>
+
+
+
+</body>
+
+</html>

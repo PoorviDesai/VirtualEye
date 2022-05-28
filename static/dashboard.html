@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>VirtualEye Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="../css/dashboard.css" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+</head>
+<!--  -->
+<body>
+
+    <header class="page-header">
+        <nav>
+            <h1 class="sidebarHead">VirtualEye</h1>
+            <button class="toggle-mob-menu" aria-expanded="false" aria-label="open menu">
+                <svg width="20" height="20" aria-hidden="true">
+                    <use xlink:href="#down"></use>
+                </svg>
+            </button>
+            <ul class="admin-menu">
+                <!-- <li>
+                        this feature could not be completed
+                        <span>Create Test</span>
+                    </a>
+                </li>
+                -->
+                <li>
+                    <div class="stats">
+                        <i style="font-size:24px" class="fa">&#128202;</i>
+                        <button onclick="showStats()">Result Statistics</button>
+                    </div>
+                    <script>
+                        function showStats() {
+
+                            window.location.assign('http://localhost:3000/stat.html');
+
+                        }
+                    </script>
+                </li>
+                <li>
+                    <div class="logout">
+                        <i style="font-size:24px" class="fa">&#10003;</i>
+                        <button onclick="showfaceRegister()">Face Registration</button>
+                    </div>
+                    <script>
+                        function showfaceRegister() {
+
+                            window.location.assign('http://localhost:3000/facereg.html');
+
+                        }
+                    </script>
+                </li>
+                <li>
+                    <div class="logout">
+                        <i style="font-size:24px" class="fa">&#xf011;</i>
+                        <button onclick="LogoutUser()">Logout</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="switch">
+                        <input type="checkbox" id="mode" checked>
+                        <label for="mode">
+                            <span></span>
+                            <span>Dark</span>
+                        </label>
+                    </div>
+
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <section class="page-content">
+        <section class="search-and-user">
+            <h1>Dashboard</h1>
+            <div class="user-profile">
+                <span id="greeting"></span>
+                <script>
+                    var name = localStorage.getItem("studmail");
+                    name = name.substring(0, name.lastIndexOf("@"));
+                    document.getElementById("greeting").innerHTML = "Hello " + name + "!";
+                </script>
+                
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                    class="bi bi-person-circle" viewBox="0 0 16 16">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                    <path fill-rule="evenodd"
+                        d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                </svg>
+
+            </div>
+        </section>
+        <section class="grid">
+            <article>
+                <!-- Slideshow container -->
+                <div class="slideshow-container">
+
+                    <!-- Full-width images with number and caption text -->
+                    <div class="mySlides slide">
+                        <!-- <div class="numbertext"></div> -->
+                        <img src="images/bannerbn1.png" style="width:100%">
+                    </div>
+
+                    <div class="mySlides slide">
+                        <!-- <div class="numbertext"></div> -->
+                        <img src="images/ban2.png" style="width:100%">
+                    </div>
+
+                </div>
+                <br>
+                
+                <script>
+                    //for sliding images
+                    let slideIndex = 0;
+                    showSlides();
+
+                    function showSlides() {
+                        let i;
+                        let slides = document.getElementsByClassName("mySlides");
+                        for (i = 0; i < slides.length; i++) {
+                            slides[i].style.display = "none";
+                        }
+                        slideIndex++;
+                        if (slideIndex > slides.length) { slideIndex = 1 }
+                        slides[slideIndex - 1].style.display = "block";
+                        setTimeout(showSlides, 5000); // Change image every 5 seconds
+                    }
+                </script>
+
+            </article>
+
+            <section class="cards" style="background-color: rgb(181, 235, 251)">
+                <h1 class="quizHead">TEST 1</h1>
+                <h6>Time (in minutes) : </h6>
+                <br>
+                <button type="button" class="btn" onclick="surity()">Take Test</button>
+                
+                <br><br>
+                <script>
+                    function go2stats() {
+                        window.location.assign("/stat.html");
+                    }
+                </script>
+            </section>
+
+            <section class="cards" style="background-color: rgb(181, 235, 251)">
+                <h1 class="quizHead">TEST 2</h1>
+                <h6>Time (in minutes) : </h6>
+                <br>
+                <button type="button" class="btn" onclick="surity2()">Take Test</button>
+
+                
+                <br><br>
+                <script>
+                    function surity() {
+
+                        if (window.confirm('Are you sure?')) {
+                            // User clicked Ok
+                            window.location.assign("/exam.html");
+                        }
+                        else {
+                            // User clicked no
+                            //do nothing
+                        }
+                    }
+                    function surity2() {
+
+                        if (window.confirm('Are you sure?')) {
+                            // User clicked Ok
+                            window.location.assign("/exam2.html");
+                        }
+                        else {
+                            // User clicked no
+                            //do nothing
+                        }
+                    }
+
+                </script>
+
+            </section>
+
+            </article>
+        
+        </section>
+        <footer class="page-footer">
+
+        </footer>
+    </section>
+</body>
+
+<script>
+    const html = document.documentElement;
+    const body = document.body;
+    const menuLinks = document.querySelectorAll(".admin-menu a");
+    const collapseBtn = document.querySelector(".admin-menu .collapse-btn");
+    const toggleMobileMenu = document.querySelector(".toggle-mob-menu");
+    const switchInput = document.querySelector(".switch input");
+    const switchLabel = document.querySelector(".switch label");
+    const switchLabelText = switchLabel.querySelector("span:last-child");
+    const collapsedClass = "collapsed";
+    const lightModeClass = "light-mode";
+
+    /*TOGGLE MENU*/
+    toggleMobileMenu.addEventListener("click", function () {
+        body.classList.toggle("mob-menu-opened");
+        this.getAttribute("aria-expanded") == "true"
+            ? this.setAttribute("aria-expanded", "false")
+            : this.setAttribute("aria-expanded", "true");
+        this.getAttribute("aria-label") == "open menu"
+            ? this.setAttribute("aria-label", "close menu")
+            : this.setAttribute("aria-label", "open menu");
+    });
+
+    /*SHOW TOOLTIP ON MENU LINK HOVER*/
+    for (const link of menuLinks) {
+        link.addEventListener("mouseenter", function () {
+            if (
+                body.classList.contains(collapsedClass) &&
+                window.matchMedia("(min-width: 768px)").matches
+            ) {
+                const tooltip = this.querySelector("span").textContent;
+                this.setAttribute("title", tooltip);
+            } else {
+                this.removeAttribute("title");
+            }
+        });
+    }
+
+    /*TOGGLE LIGHT/DARK MODE FOR SIDEBAR*/
+    if (localStorage.getItem("dark-mode") === "false") {
+        html.classList.add(lightModeClass);
+        switchInput.checked = false;
+        switchLabelText.textContent = "Light";
+    }
+
+    switchInput.addEventListener("input", function () {
+        html.classList.toggle(lightModeClass);
+        if (html.classList.contains(lightModeClass)) {
+            switchLabelText.textContent = "Light";
+            localStorage.setItem("dark-mode", "false");
+        } else {
+            switchLabelText.textContent = "Dark";
+            localStorage.setItem("dark-mode", "true");
+        }
+    });
+
+</script>
+<script>
+
+    var firebaseConfig = {
+        apiKey: "AIzaSyCm_7IvK1c8tmwe0PnUijz17QxGV-M7WIc",
+        authDomain: "engage-835dd.firebaseapp.com",
+        databaseURL: "https://engage-835dd-default-rtdb.firebaseio.com",
+        projectId: "engage-835dd",
+        storageBucket: "engage-835dd.appspot.com",
+        messagingSenderId: "411976048500",
+        appId: "1:411976048500:web:2b02c581d3f886265dd621",
+        measurementId: "G-4GS4Z6Y7QB"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    function LogoutUser() {
+        console.log('Logout Btn Call')
+        firebase.auth().signOut().then(() => {
+            window.location.replace('http://localhost:3000');
+            console.log('Signed Out');
+
+        }).catch(e => {
+            console.log(e)
+        })
+    }
+
+
+</script>
+
+</html>
