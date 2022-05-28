@@ -1,0 +1,81 @@
+html, body{
+    background: url(../images/stats2.png) no-repeat center center fixed;
+    background-size: cover;
+    height: 100%;
+    overflow: hidden;
+}
+.table-scroll{
+    overflow: auto;
+    height:450px;
+    
+}
+.table-scroll thead th{
+    position: sticky;
+    top:0;
+}
+
+.container{
+    margin-top: 3em;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    font-size: 1.2em;
+    
+    
+}
+th, td {
+    border-bottom: 1px solid #ddd;
+    padding: 1em;
+  }
+  tr:nth-child(even) {background-color: #f2f2f2;}
+  th {
+    background-color: #04AA6D;
+   
+    
+    color: white;
+  }
+  .tableshow {
+    background: #34d9ad;
+    background-image: -webkit-linear-gradient(top, #34d9ad, #2bb876);
+    background-image: -moz-linear-gradient(top, #34d9ad, #2bb876);
+    background-image: -ms-linear-gradient(top, #34d9ad, #2bb876);
+    background-image: -o-linear-gradient(top, #34d9ad, #2bb876);
+    background-image: linear-gradient(to bottom, #34d9ad, #2bb876);
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    border: none;
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    
+  }
+  
+  .tableshow:hover {
+    background: #43fc3c;
+    background-image: -webkit-linear-gradient(top, #43fc3c, #34d97e);
+    background-image: -moz-linear-gradient(top, #43fc3c, #34d97e);
+    background-image: -ms-linear-gradient(top, #43fc3c, #34d97e);
+    background-image: -o-linear-gradient(top, #43fc3c, #34d97e);
+    background-image: linear-gradient(to bottom, #43fc3c, #34d97e);
+    text-decoration: none;
+  }
+  #statHead{
+    color: white;
+    text-align: center;
+    font-family: Cursive, Lucida Handwriting ;
+    margin-top: 0.5em;
+  }
+  #exam-name{
+    width: 10%;
+    height: 28px;
+    font-size: 18px;
+    border-radius: 0.5em;
+    
+  }
+  

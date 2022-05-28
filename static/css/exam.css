@@ -1,0 +1,122 @@
+.form {
+	border: none;
+	width: 90vw;
+	height: 90vh;
+  display: flex;
+	text-align: center;
+	align-self: center;
+    
+}
+.column {
+    
+    column-gap: 30px;
+    
+    justify-content: center; 
+    text-align: center;
+  }
+  
+  /* .left, .right {
+    width: 25%;
+    justify-content: center;
+    text-align: center; 
+  }
+  
+  .middle {
+    width: 50%;
+    justify-content: center; 
+    
+  } */
+  .row{
+    display: grid;
+    grid-template-columns: 33.334% 66.667% ;	
+
+  }
+  @media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+      justify-content: center; 
+    }
+  }
+  #webgazerVideoContainer {
+    border: 3px solid rgb(129, 33, 86) !important;
+    border-radius: 5px;
+    margin-top:  200px !important;
+    margin-left: 100px !important;
+    height: 240px !important;
+    width: 320px !important;
+    padding: 0px;
+  }
+  #row2{
+    font-size : 1.5em;
+  }
+  #row3{
+    font-size: 1.5em;
+  }
+  .attend{
+    font-size: 1.2em;
+    background-image: radial-gradient( circle 515px at 48.7% 52.8%,  rgba(239,110,110,1) 0%, rgba(230,25,25,1) 46.5%, rgba(154,11,11,1) 100.2% );
+  }
+  .attend {
+    background: #ed3b09;
+    background-image: -webkit-linear-gradient(top, #ed3b09, #b82c2c);
+    background-image: -moz-linear-gradient(top, #ed3b09, #b82c2c);
+    background-image: -ms-linear-gradient(top, #ed3b09, #b82c2c);
+    background-image: -o-linear-gradient(top, #ed3b09, #b82c2c);
+    background-image: linear-gradient(to bottom, #ed3b09, #b82c2c);
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    display: inline;
+  }
+  
+  .attend:hover {
+    background: #fa6b3c;
+    background-image: -webkit-linear-gradient(top, #fa6b3c, #faaf00);
+    background-image: -moz-linear-gradient(top, #fa6b3c, #faaf00);
+    background-image: -ms-linear-gradient(top, #fa6b3c, #faaf00);
+    background-image: -o-linear-gradient(top, #fa6b3c, #faaf00);
+    background-image: linear-gradient(to bottom, #fa6b3c, #faaf00);
+    text-decoration: none;
+  }
+  
+  .timer {
+    font-family: sans-serif;
+    display: inline-block;
+    padding: 24px 32px;
+    border-radius: 30px;
+    background: white;
+  }
+  
+  .timer__part {
+    font-size: 36px;
+    font-weight: bold;
+  }
+  
+  .timer__btn {
+    width: 50px;
+    height: 50px;
+    margin-left: 16px;
+    border-radius: 50%;
+    border: none;
+    color: white;
+    background: #8208e6;
+    cursor: pointer;
+  }
+  
+  .timer__btn--start {
+    background: #00b84c;
+  }
+  
+  .timer__btn--stop {
+    background: #ff0256;
+  }
+  #time{
+    font-size: 2em;
+    font-weight: bold;
+    padding-right: 1.2em;
+  }

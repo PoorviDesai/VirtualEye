@@ -1,9 +1,12 @@
 html,
 body {
-    background: url(../images/prac2.png) no-repeat center center fixed;
+    background: url(../images/bg10.png) no-repeat center center fixed;
     background-size: cover;
     height: 100%;
     overflow: hidden;
+    
+    
+
 }
 .login-content{
 	display: flex;
@@ -45,6 +48,7 @@ form{
     grid-template-columns: repeat(2, 1fr);
     grid-gap :7rem;
     padding: 0 2rem;
+	
 }
 
 .regimg{
@@ -192,4 +196,9 @@ a{
 	font-size: 0.9rem;
 	transition: .3s;
 }
-
+#loginHead{
+    color: white;
+    text-align: center;
+    font-family: Cursive, Lucida Handwriting ;
+    margin-top: 0;
+  }
