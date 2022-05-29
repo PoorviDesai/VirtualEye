@@ -1,7 +1,6 @@
 # VirtualEye
-A browser based proctoring application which can be accessed in one of the following supported browsers.
-
-![browsers](https://user-images.githubusercontent.com/81794133/170841553-f2b5079b-5747-4868-8776-83e8e771dc16.png)
+   A browser based proctoring application which can be accessed in one of the following supported browsers.
+   ![browsers](https://user-images.githubusercontent.com/81794133/170841553-f2b5079b-5747-4868-8776-83e8e771dc16.png)
 
 ## UI, Interfaces and Features
 1. Landing Page
