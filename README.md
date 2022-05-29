@@ -72,14 +72,13 @@
 
    v) To see the list for another exam, type the name of the test as available on dashboard and click set and then get stats.
 
-   vi) This will give the remove the list of the previous test and will display the current entered test.
+   vi) This will remove the list of the previous test and display the current entered test violation statistics.
 
-   vii) Using this list the test creator can analyze as to who used unfair means and cheated by how much extent and then based on the results of
-   decide what grade to render to the user.
+   vii) Using this list the test creator can perform an analysis as to who gave the test fairly and who was warned and terminated, etc.
 
    <img width="1440" alt="11" src="https://user-images.githubusercontent.com/81794133/170842289-192bc573-2dfc-4e43-b6d4-81d01fe3dc57.png">
 
-8. Click on the Logout Button on the sidebar and the user will be directed to the landing page.
+8. On clicking the Logout Button on the sidebar, the user will be directed to the landing page.
 
 ## Tools and Languages
   * **Front End and Styling** : HTML, CSS, Bootstrap
