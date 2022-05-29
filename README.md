@@ -27,6 +27,8 @@
    iii)Sidebar with Dark - Light Toggle and links to Statistics and Face Registration Page
 
    iv)Two Tests which are created already have been displayed
+   
+   v)On clicking the 'Take Test' button, a window alert is displayed to ensure whether the user really wants to give the test or has clicked the button by mistake
 
    <img width="1440" alt="4" src="https://user-images.githubusercontent.com/81794133/170842042-19a6b9ab-8bf1-479c-b0cf-4b7320fc4e96.png">
    <img width="1440" alt="5" src="https://user-images.githubusercontent.com/81794133/170842086-ce29d3dd-9cb9-4d73-a235-27b4014fb6a3.png">
@@ -41,8 +43,6 @@
 
 6. **Test Window (Page)**
    
-   i)On clicking the 'Take Test' button, a window alert is displayed to ensure whether the user really wants to give the test or has clicked the button by mistake
-
    i)On clicking 'OK' on alert, the test page with live feed, student details, embedded form, timer and webgazer appears. It may take sometime to be loaded for the first time
 
 
