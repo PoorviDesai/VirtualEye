@@ -8,15 +8,18 @@ A browser based proctoring application which can be accessed in one of the follo
    <img width="1440" alt="1" src="https://user-images.githubusercontent.com/81794133/170841947-f819517e-e7f6-4a76-b0be-faa07cc114e2.png">
 
 2. Register Page
-  Seamless landing page with Login and Register buttons for user Registration and Login using Firebase Authentication
+
+   Seamless landing page with Login and Register buttons for user Registration and Login using Firebase Authentication
 
    <img width="1440" alt="2" src="https://user-images.githubusercontent.com/81794133/170841966-a9a28dca-23c9-45b6-8c56-59e1cf257e63.png">
 
 3. Login Page
+
    Enter the correct credentials to head towards the dashboard.
    <img width="1440" alt="3" src="https://user-images.githubusercontent.com/81794133/170842021-9d708089-2e98-49ea-91c6-5867dfb972a9.png">
 
 4. Dashboard
+
    i)Showing Proctoring Features in sliding images
 
    ii)Greeting the user using fetched email
@@ -29,6 +32,7 @@ A browser based proctoring application which can be accessed in one of the follo
    <img width="1440" alt="5" src="https://user-images.githubusercontent.com/81794133/170842086-ce29d3dd-9cb9-4d73-a235-27b4014fb6a3.png">
 
 5. Face Registration Page
+
    i)Click on Start Camera and the rest will follow automatically
 
    ii)After the process, the image is stored in the database in base64 format which can be accessed later
@@ -36,15 +40,17 @@ A browser based proctoring application which can be accessed in one of the follo
    <img width="1440" alt="6" src="https://user-images.githubusercontent.com/81794133/170842115-da2a61e0-810c-4fc8-a0d8-2a97a2decb26.png">
 
 6. Test Window (Page)
+
    i)Test page with live feed, student details, embedded form, timer and webgazer. It may take sometime to be loaded for the first time
 
 
-  <img width="1440" alt="7" src="https://user-images.githubusercontent.com/81794133/170842180-0e71cd82-5289-46b4-8698-8b9ec39b6127.png">
+   <img width="1440" alt="7" src="https://user-images.githubusercontent.com/81794133/170842180-0e71cd82-5289-46b4-8698-8b9ec39b6127.png">
 
-  ii)Warnings Displayed on violations
-  <img width="1440" alt="8" src="https://user-images.githubusercontent.com/81794133/170842216-96187840-9a95-4263-a16e-077c1773a2a3.png">
-  <img width="1440" alt="9" src="https://user-images.githubusercontent.com/81794133/170842227-2720aaca-010c-4cb0-8d25-66abacea7649.png">
-  <img width="1440" alt="10" src="https://user-images.githubusercontent.com/81794133/170842250-d3c1026e-4cb4-4d67-b7ed-23f796c8f52a.png">
+   ii)Warnings Displayed on violations like looking away for a long time, pressing control key & changing tabs.
+   
+   <img width="1440" alt="8" src="https://user-images.githubusercontent.com/81794133/170842216-96187840-9a95-4263-a16e-077c1773a2a3.png">
+   <img width="1440" alt="9" src="https://user-images.githubusercontent.com/81794133/170842227-2720aaca-010c-4cb0-8d25-66abacea7649.png">
+   <img width="1440" alt="10" src="https://user-images.githubusercontent.com/81794133/170842250-d3c1026e-4cb4-4d67-b7ed-23f796c8f52a.png">
 
    iii)Also, the warning count is monitored and if number of warnings become greater than 4, then the test will terminate automatically and
    the data of the cheat score will be added to the database automatically
@@ -55,6 +61,7 @@ A browser based proctoring application which can be accessed in one of the follo
    v) Going Back is disabled on the exam page.
 
 7. Statistics Page
+
    i) Enter the test name as appeared in the dashboard
    
    ii) Click on 'Set'
@@ -70,20 +77,20 @@ A browser based proctoring application which can be accessed in one of the follo
    vii) Using this list the test creator can analyze as to who used unfair means and cheated by how much extent and then based on the results of
    decide what grade to render to the user.
 
-  <img width="1440" alt="11" src="https://user-images.githubusercontent.com/81794133/170842289-192bc573-2dfc-4e43-b6d4-81d01fe3dc57.png">
+   <img width="1440" alt="11" src="https://user-images.githubusercontent.com/81794133/170842289-192bc573-2dfc-4e43-b6d4-81d01fe3dc57.png">
 
 8. Click on the Logout Button on the sidebar and the user will be directed to the landing page.
 
 ## Tools and Languages
-  Front End and Styling : HTML, CSS, Bootstrap
+  * Front End and Styling : HTML, CSS, Bootstrap
 
-  Backend: NodeJS ExpressJS
+  * Backend: NodeJS ExpressJS
+ 
+  * Database: Firebase Realtime Database
 
-  Database: Firebase Realtime Database
-
-  Authentication: Firebase
-
-  Eye Head Tracking: webGazer.js
+  * Authentication: Firebase
+ 
+  * Eye Head Tracking: webGazer.js
 
 ## Points to Remember while testing
    i) Allow permissions for mic and camera
