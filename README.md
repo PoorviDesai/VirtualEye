@@ -68,9 +68,9 @@
    
    iii) Click on 'Get Stats'
 
-   iv) This will display the list of all the users who took the test with their respective warning counts and individual violation counts also
+   iv) This will display the list of all the users who took the test with their respective warning counts and individual violation counts as well.
 
-   v) To see the list for another exam, tyoe the name of the test as available on dashboard and click set and then get stats.
+   v) To see the list for another exam, type the name of the test as available on dashboard and click set and then get stats.
 
    vi) This will give the remove the list of the previous test and will display the current entered test.
 
