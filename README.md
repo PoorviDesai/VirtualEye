@@ -3,16 +3,17 @@
    ![browsers](https://user-images.githubusercontent.com/81794133/170841553-f2b5079b-5747-4868-8776-83e8e771dc16.png)
 
 ## UI, Interfaces and Features
-1. Landing Page
+1. **Landing Page**
+
    <img width="1440" alt="1" src="https://user-images.githubusercontent.com/81794133/170841947-f819517e-e7f6-4a76-b0be-faa07cc114e2.png">
 
-2. Register Page
+2. **Register Page**
 
    Seamless landing page with Login and Register buttons for user Registration and Login using Firebase Authentication
 
    <img width="1440" alt="2" src="https://user-images.githubusercontent.com/81794133/170841966-a9a28dca-23c9-45b6-8c56-59e1cf257e63.png">
 
-3. Login Page
+3. **Login Page**
 
    Enter the correct credentials to head towards the dashboard.
    <img width="1440" alt="3" src="https://user-images.githubusercontent.com/81794133/170842021-9d708089-2e98-49ea-91c6-5867dfb972a9.png">
@@ -30,7 +31,7 @@
    <img width="1440" alt="4" src="https://user-images.githubusercontent.com/81794133/170842042-19a6b9ab-8bf1-479c-b0cf-4b7320fc4e96.png">
    <img width="1440" alt="5" src="https://user-images.githubusercontent.com/81794133/170842086-ce29d3dd-9cb9-4d73-a235-27b4014fb6a3.png">
 
-5. Face Registration Page
+5. **Face Registration Page**
 
    i)Click on Start Camera and the rest will follow automatically
 
@@ -38,7 +39,7 @@
 
    <img width="1440" alt="6" src="https://user-images.githubusercontent.com/81794133/170842115-da2a61e0-810c-4fc8-a0d8-2a97a2decb26.png">
 
-6. Test Window (Page)
+6. **Test Window (Page)**
 
    i)Test page with live feed, student details, embedded form, timer and webgazer. It may take sometime to be loaded for the first time
 
@@ -59,7 +60,7 @@
 
    v) Going Back is disabled on the exam page.
 
-7. Statistics Page
+7. **Statistics Page**
 
    i) Enter the test name as appeared in the dashboard
    
@@ -81,15 +82,15 @@
 8. Click on the Logout Button on the sidebar and the user will be directed to the landing page.
 
 ## Tools and Languages
-  * Front End and Styling : HTML, CSS, Bootstrap
+  * **Front End and Styling** : HTML, CSS, Bootstrap
 
-  * Backend: NodeJS ExpressJS
+  * **Backend** : NodeJS ExpressJS
  
-  * Database: Firebase Realtime Database
+  * **Database** : Firebase Realtime Database
 
-  * Authentication: Firebase
+  * **Authentication** : Firebase
  
-  * Eye Head Tracking: webGazer.js
+  * **Eye Head Tracking** : webGazer.js
 
 ## Points to Remember while testing
    i) Allow permissions for mic and camera
