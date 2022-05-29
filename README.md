@@ -40,8 +40,9 @@
    <img width="1440" alt="6" src="https://user-images.githubusercontent.com/81794133/170842115-da2a61e0-810c-4fc8-a0d8-2a97a2decb26.png">
 
 6. **Test Window (Page)**
+   i)On clicking the 'Take Test' button, a window alert is displayed to ensure whether the user really wants to give the test or has clicked the button by mistake
 
-   i)Test page with live feed, student details, embedded form, timer and webgazer. It may take sometime to be loaded for the first time
+   i)On clicking 'OK' on alert, the test page with live feed, student details, embedded form, timer and webgazer appears. It may take sometime to be loaded for the first time
 
 
    <img width="1440" alt="7" src="https://user-images.githubusercontent.com/81794133/170842180-0e71cd82-5289-46b4-8698-8b9ec39b6127.png">
@@ -56,9 +57,9 @@
    the data of the cheat score will be added to the database automatically
 
    iv)Those who submit the test on time and have warning count less than the threshold have to press the 'Attendance' button to ensure that 
-   they are marked present for the test
+   they are marked present for the test and their data is then recorded.
 
-   v) Going Back is disabled on the exam page.
+   v)Also, going Back is disabled on the exam page. Again this feature appears after a certain time.
 
 7. **Statistics Page**
 
@@ -94,7 +95,7 @@
 ## Points to Remember while testing
    i) Allow permissions for mic and camera
 
-   ii) In case any webGazer is not loaded in exam window or not loaded properly, REFRESH the window to solve this. In the first time, it may take some
+   ii) In case webGazer is not loaded in exam window or not loaded properly, REFRESH the window to solve this. For the first time, it may take some
    time to be loaded
 
    iii) Test the conditions while attempting the embedded form and some features like head movement initially may take some time to be responded.
@@ -136,7 +137,7 @@
 
   * To make this prototype full fledged and useful in real time, some of the features to be worked upon are:
 
-  * Being able to first verify the user before entering the test with the face registered in the database and based on the result deciding whether to allow or disallow the user inorder to avoid proxy.
+  * Being able to first verify the user before entering the test with the face registered in the database and based on the result deciding whether to   allow or disallow the user inorder to avoid proxy.
 
   * Integrating Speech or voice detection mechanism in the exam window
 
@@ -144,11 +145,13 @@
 
   * Feature like the user can see only his/her statistics while the admin can access all.
 
-  * Integrating Microsoft and Google forms and several other quiz and form services with it so that the cheat score along the marks obtained can be shown in the result section
+  * Integrating Microsoft and Google forms and several other quiz and form services with it so that the cheat score along with the marks obtained can be shown in the result section
 
-  * Make more dynamic features.
+  * Introduction of more dynamic features in the prototype.
+  
+  *
 
-### In the end, I would like to thank Microsoft Engage'22 team for motivating me to work on this project.
+### In the end, I would like to thank Microsoft Engage'22 team for giving me the opportunity to work on this project!
 
 
 
