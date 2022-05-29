@@ -56,7 +56,7 @@
    the data of the cheat score will be added to the database automatically
 
    iv)Those who submit the test on time and have warning count less than the threshold have to press the 'Attendance' button to ensure that 
-   they are marke presesnt for the test
+   they are marked presesnt for the test
 
    v) Going Back is disabled on the exam page.
 
