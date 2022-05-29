@@ -109,13 +109,13 @@
 
 ## Steps for cloning the project
 
-  i)Write git clone https://github.com/PoorviDesai/VirtualEye.git
+  i)Write git clone https://github.com/PoorviDesai/VirtualEye.git or download as zip.
 
   ii)Open Folder in VSCode
 
   iii)Ensure Nodejs is already installed
 
-  iv)iWrite npm install in your terminal
+  iv)Write npm install in your terminal
 
   v)Write node index.js in terminal
 
@@ -150,7 +150,7 @@
 
   * Introduction of more dynamic features in the prototype.
   
-  *
+  * To make the tracking more efficient and accurate.
 
 ### In the end, I would like to thank Microsoft Engage'22 team for giving me the opportunity to work on this project!
 
