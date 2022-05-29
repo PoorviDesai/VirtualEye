@@ -28,10 +28,13 @@
 
    iv)Two Tests which are created already have been displayed
    
-   v)On clicking the 'Take Test' button, a window alert is displayed to ensure whether the user really wants to give the test or has clicked the button by mistake
-
    <img width="1440" alt="4" src="https://user-images.githubusercontent.com/81794133/170842042-19a6b9ab-8bf1-479c-b0cf-4b7320fc4e96.png">
    <img width="1440" alt="5" src="https://user-images.githubusercontent.com/81794133/170842086-ce29d3dd-9cb9-4d73-a235-27b4014fb6a3.png">
+   
+   v)On clicking the 'Take Test' button, a window alert is displayed to ensure whether the user really wants to give the test or has clicked the button by mistake
+   
+   <img width="1440" alt="12" src="https://user-images.githubusercontent.com/81794133/170862512-c5294a99-4928-4e1e-8bbe-155888d40429.png">
+
 
 5. **Face Registration Page**
 
