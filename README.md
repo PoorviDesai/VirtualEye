@@ -149,7 +149,7 @@
 
   * Make more dynamic features.
 
-### In the end, I would like to thanks Microsoft Engage'22 team for motivating me to work on this project.
+### In the end, I would like to thank Microsoft Engage'22 team for motivating me to work on this project.
 
 
 
