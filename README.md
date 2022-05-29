@@ -105,9 +105,9 @@
    iii) Test the conditions while attempting the embedded form and some features like head movement initially may take some time to be responded.
 
 ## Demo and Links
-  Link will be pasted here VDO
+  * Video Demo : https://youtu.be/cAIy44dwjD0
 
-  Presentation Link: https://www.canva.com/design/DAFB-oiB9QI/ur2kDoHL061X82neKaTt-w/view?utm_content=DAFB-oiB9QI&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink
+  * Presentation Link: https://www.canva.com/design/DAFB-oiB9QI/ur2kDoHL061X82neKaTt-w/view?utm_content=DAFB-oiB9QI&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink
 
 
 ## Steps for cloning the project
