@@ -40,6 +40,7 @@
    <img width="1440" alt="6" src="https://user-images.githubusercontent.com/81794133/170842115-da2a61e0-810c-4fc8-a0d8-2a97a2decb26.png">
 
 6. **Test Window (Page)**
+   
    i)On clicking the 'Take Test' button, a window alert is displayed to ensure whether the user really wants to give the test or has clicked the button by mistake
 
    i)On clicking 'OK' on alert, the test page with live feed, student details, embedded form, timer and webgazer appears. It may take sometime to be loaded for the first time
