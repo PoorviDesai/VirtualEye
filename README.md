@@ -20,50 +20,50 @@
 
 4. **Dashboard**
 
-   i)Showing Proctoring Features in sliding images
+   i) Showing Proctoring Features in sliding images
 
-   ii)Greeting the user using fetched email
+   ii) Greeting the user using fetched email
 
-   iii)Sidebar with Dark - Light Toggle and links to Statistics and Face Registration Page
+   iii) Sidebar with Dark - Light Toggle and links to Statistics and Face Registration Page
 
-   iv)Two Tests which are created already have been displayed
+   iv) Two Tests which are created already have been displayed
    
    <img width="1440" alt="4" src="https://user-images.githubusercontent.com/81794133/170842042-19a6b9ab-8bf1-479c-b0cf-4b7320fc4e96.png">
    <img width="1440" alt="5" src="https://user-images.githubusercontent.com/81794133/170842086-ce29d3dd-9cb9-4d73-a235-27b4014fb6a3.png">
    
-   v)On clicking the 'Take Test' button, a window alert is displayed to ensure whether the user really wants to give the test or has clicked the button by mistake
+   v) On clicking the 'Take Test' button, a window alert is displayed to ensure whether the user really wants to give the test or has clicked the button by mistake
    
    <img width="1440" alt="12" src="https://user-images.githubusercontent.com/81794133/170862512-c5294a99-4928-4e1e-8bbe-155888d40429.png">
 
 
 5. **Face Registration Page**
 
-   i)Click on Start Camera and the rest will follow automatically
+   i) Click on Start Camera and the rest will follow automatically
 
-   ii)After the process, the image is stored in the database in base64 format which can be accessed later
+   ii) After the process, the image is stored in the database in base64 format which can be accessed later
 
    <img width="1440" alt="6" src="https://user-images.githubusercontent.com/81794133/170842115-da2a61e0-810c-4fc8-a0d8-2a97a2decb26.png">
 
 6. **Test Window (Page)**
    
-   i)On clicking 'OK' on alert, the test page with live feed, student details, embedded form, timer and webgazer appears. It may take sometime to be loaded for the first time
+   i) On clicking 'OK' on alert, the test page with live feed, student details, embedded form, timer and webgazer appears. It may take sometime to be loaded for the first time
 
 
    <img width="1440" alt="7" src="https://user-images.githubusercontent.com/81794133/170842180-0e71cd82-5289-46b4-8698-8b9ec39b6127.png">
 
-   ii)Warnings Displayed on violations like looking away for a long time, pressing control key & changing tabs.
+   ii) Warnings Displayed on violations like looking away for a long time, pressing control key & changing tabs.
    
    <img width="1440" alt="8" src="https://user-images.githubusercontent.com/81794133/170842216-96187840-9a95-4263-a16e-077c1773a2a3.png">
    <img width="1440" alt="9" src="https://user-images.githubusercontent.com/81794133/170842227-2720aaca-010c-4cb0-8d25-66abacea7649.png">
    <img width="1440" alt="10" src="https://user-images.githubusercontent.com/81794133/170842250-d3c1026e-4cb4-4d67-b7ed-23f796c8f52a.png">
 
-   iii)Also, the warning count is monitored and if number of warnings become greater than 4, then the test will terminate automatically and
+   iii) Also, the warning count is monitored and if number of warnings become greater than 4, then the test will terminate automatically and
    the data of the cheat score will be added to the database automatically
 
-   iv)Those who submit the test on time and have warning count less than the threshold have to press the 'Attendance' button to ensure that 
+   iv) Those who submit the test on time and have warning count less than the threshold have to press the 'Attendance' button to ensure that 
    they are marked present for the test and their data is then recorded.
 
-   v)Also, going Back is disabled on the exam page. Again this feature appears after a certain time.
+   v) Also, going Back is disabled on the exam page. Again this feature appears after a certain time.
 
 7. **Statistics Page**
 
@@ -112,17 +112,17 @@
 
 ## Steps for cloning the project
 
-  i)Write git clone https://github.com/PoorviDesai/VirtualEye.git or download as zip.
+  i) Write git clone https://github.com/PoorviDesai/VirtualEye.git or download as zip.
 
-  ii)Open Folder in VSCode
+  ii) Open Folder in VSCode
 
-  iii)Ensure Nodejs is already installed
+  iii) Ensure Nodejs is already installed
 
-  iv)Write npm install in your terminal
+  iv) Write npm install in your terminal
 
-  v)Write node index.js in terminal
+  v) Write node index.js in terminal
 
-  vi)Open http://localhost:3000 in your browser
+  vi) Open http://localhost:3000 in your browser
 
 ## Challenges
   * Maintaining reliability, speed and accuracy.
