@@ -18,7 +18,7 @@
    Enter the correct credentials to head towards the dashboard.
    <img width="1440" alt="3" src="https://user-images.githubusercontent.com/81794133/170842021-9d708089-2e98-49ea-91c6-5867dfb972a9.png">
 
-4. Dashboard
+4. **Dashboard**
 
    i)Showing Proctoring Features in sliding images
 
